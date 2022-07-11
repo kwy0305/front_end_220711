@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      div {
+        width: 50%;
+        /* 인라인 요소와 블럭 요소는 서로 변경 가능하다. */
+        /* inline-block : 인라인과 블럭의 하이브리드. */
+        display: inline;
+      }
+
+      p {
+        width: 250px;
+        height: 500px;
+        background: red;
+      }
+
+      a {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 블럭 레벨 요소는 줄바꿈이 자동으로 일어난다.
+    블럭 레벨 요소는 높이는 가진 컨텐츠의 높이만큼, 너비는 상위 요소의 너비만큼(기본값). 
+  레이아웃 배치를 하는데 사용 =>영역 지정.
+-->
+    <div>
+      블럭레벨 요소
+      <p>p태그는 블록 레벨 요소입니다.</p>
+      <div>블럭레벨 요소 02</div>
+    </div>
+    <p>p태그는 자동으로 줄바꿈이 일어납니다.</p>
+
+    <!-- 인라인 요소 : 줄바꿈 x , 높이와 너비 지정x. 글씨 정렬 영향을 받는다. -->
+    <a href="">구글</a>
+    <a href="">네이버</a>
+    <input type="text" />
+  </body>
+</html>
