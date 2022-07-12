@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Dongle&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: Dokdo;
+        src: url(/css/03_text/Dokdo-Regular.ttf);
+        font-weight: 400;
+      }
+      html {
+        font-size: 32px;
+        font-family: Dongle;
+      }
+
+      body {
+        font-size: 28px;
+      }
+
+      p {
+        /* 
+        px : 모니터의 화소수가 기준.
+        em : 부모 요소의 대문자 M이 기준.
+        rem : 최상위 요소(root)의 글자 크기가 기준.
+        */
+        font-family: Dongle;
+        font-size: 24px;
+        font-size: 1em;
+        font-size: 0.5rem;
+      }
+      .weight {
+        font-weight: 600; /* 100~900의 단위 사용. 400이 normal, 700 bold */
+        font-weight: bold;
+        font-weight: lighter;
+      }
+
+      .color {
+        color: #e8e8e8; /* hex: 16진법 => 0~f*/
+        color: #000000;
+        color: #ffffff;
+        color: #ff0000; /*0~255 : 16진법 코드 두개로 표현 가능*/
+        color: #00ff00;
+        color: #0000ff;
+      }
+      .align {
+        width: 500px;
+        text-align: center;
+        text-align: justify; /*양쪽 끝을 일자로 맞추기 위해 단어 사이 여백을 조금씩 다르게 조절.*/
+      }
+      .transform {
+        /* text-transform: uppercase; 모든 문자를 대문자로*/
+        /* text-transform: lowercase; 모든 문자를 소문자로*/
+        text-transform: capitalize; /*모든 단어의 첫글자를 대문자로*/
+      }
+      .decoration {
+        /* text-decoration: underline; 글자에 밑줄을 긋는다.*/
+        /* text-decoration: overline; 글자에 윗줄을 긋는다. */
+        text-decoration: red line-through dashed; /* 글자를 통과하는 선(취소선)을 긋는다. */
+      }
+      .linehight {
+        /* line-height: 30px; 줄간격을 지정. */
+        line-height: 1.5em;
+      }
+      .spacing {
+        letter-spacing: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>글자 관련 CSS 속성들</h2>
+    <p>font-size : 글자의 크기를 지정한다.</p>
+    <p class="weight">font-weight : 글자의 가중도(굵기)를 지정.</p>
+    <p class="color">color: 글자의 색상을 지정.</p>
+    <p class="align">text-align : 글자 정렬을 지정</p>
+    <p class="align transform lineHeight">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
+      atque quibusdam? Magni consequatur numquam porro! Adipisci ipsa nemo
+      laborum! Laudantium ipsa, similique dignissimos numquam aliquid temporibus
+      incidunt cumque aut qui!
+    </p>
+    <p class="decoration">text-decoration : 글자에 장식용 선을 추가.</p>
+    <p class="spacing">
+      letter-spacing : 글자 간의 간격을 지정. <br />
+      word-spacing : 단어 간의 간격을 지정.
+    </p>
+  </body>
+</html>

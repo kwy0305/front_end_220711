@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2 {
+        font-weight: 400;
+      }
+      p {
+        color: red;
+        margin-bottom: 50px;
+      }
+      b {
+        color: #000;
+      }
+
+      .bold {
+        font-weight: 700;
+      }
+      .blue {
+        color: blue;
+      }
+      /* 우선순위 : !important -> 인라인 방식 -> id -> class -> 타입 */
+      /* 우선순위가 동일하다면 나중에 작성 코드가 적용(같은 속성 한정). */
+      #small {
+        font-size: 14px;
+      }
+
+      .small {
+        font-size: 14px;
+      }
+      .big {
+        font-size: 32px;
+      }
+      h2,
+      p {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="big bold blue">선택자</h2>
+    <p>CSS를 적용하고자 하는 <b>요소</b>를 <span>선택하기</span> 위한 문법.</p>
+
+    <h2 class="bold">전체 요소 선택자</h2>
+    <p>html의 모든 <b>요소</b>를 선택.</p>
+
+    <h2>타입 선택자</h2>
+    <p>특정 태그를 사용한 <b>요소</b>를 선택.</p>
+
+    <h2>클래스 선택자</h2>
+    <p class="big small">
+      특정 클래스명을 가진 요소를 선택 <br />
+      html 요소의 class 속성을 통해 클래스명을 지정.
+    </p>
+
+    <h2 id="small" class="big">아이디 선택자</h2>
+    <p>
+      특정 아이디를 가진 요소를 선택 <br />
+      html 요소의 id 속성을 통해 아이디 지정.
+    </p>
+  </body>
+</html>

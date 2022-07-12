@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테이블</title>
+    <style>
+      table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+    <colgroup>
+        <col span="4" style="background-color: blue" />
+    <col span="2" style="background-color: tomato" />   
+      </colgroup>
+      <thead>
+          <th>반</th>
+          <th>이름</th>
+          <th>국어</th>
+          <th>수학</th>
+          <th>영어</th>
+          <th>평균</th>
+          <th>등급</th>
+        </thead>
+      </tbody>
+        <tr>
+          <td rowspan="2">a반</td>
+          <td>김원영</td>
+          <td rowspan="3">70점</td>
+          <td>100점</td>
+          <td>100점</td>
+          <td>90점</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <!-- <td>a반</td> -->
+          <td>김민수</td>
+          <!-- <td>70점</td> -->
+          <td>70점</td>
+          <td>100점</td>
+          <td>80점</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>b반</td>
+          <td>홍길동</td>
+          <td>80점</td>
+          <!-- <td>70점</td> -->
+          <td>60점</td>
+          <td>70점</td>
+          <td>C</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">요약</td>
+          <td colspan="3">값</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

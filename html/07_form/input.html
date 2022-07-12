@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/signup" id="form1">
+      <table>
+        <tr>
+          <td><label for="name">이름</label></td>
+          <td>
+            <!-- requried : required 속성이 입력된 input 태그를 작성하지 않으면 전송x  autofocus: 페이지 접속 시 자동으로 focus가 지정된다.
+            -->
+            <!-- boolean => true / false 값을 생략하면 true -->
+            <input
+              type="text"
+              placeholder="이름을 입력해주세요"
+              name="name"
+              id="name"
+              required
+              autofocus
+              value="김원영"
+              readonly
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <input
+              type="email"
+              placeholder="이메일을 입력해주세요"
+              name="email"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td>연령대</td>
+          <td>
+            <lable> <input type="radio" name="agegroup" />10대 </lable>
+            <lable> <input type="radio" name="agegroup" />20대 </lable>
+            <lable><input type="radio" name="agegroup" checked />30대 </lable>
+          </td>
+        </tr>
+        <tr>
+          <td>관심분야</td>
+          <td>
+            <input type="checkbox" name="interest" /> 과학
+            <input type="checkbox" name="interest" checked /> 수학
+            <input type="checkbox" name="interest" value="computer" /> 컴퓨터
+          </td>
+        </tr>
+        <tr>
+          <td>구매수량</td>
+          <td><input type="number" name="number" /></td>
+        </tr>
+        <tr>
+          <td>프로필</td>
+          <td><input type="file" name="" id="" /></td>
+        </tr>
+      </table>
+      <button>전송</button>
+    </form>
+    <button type="reset" form="form1">초기화</button>
+  </body>
+</html>
