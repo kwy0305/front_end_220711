@@ -1,0 +1,160 @@
+body {
+  height: 100px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+  text-align: center;
+  background-color: #b3b3b3;
+  font-size: 0;
+  width: 100%;
+  position: fixed;
+}
+
+#header {
+  height: 36px;
+}
+
+header .gnbList {
+  font-size: 16px;
+  background-color: red;
+  display: inline-block;
+  height: 36px;
+  overflow: hidden;
+}
+
+header .gnbList:hover {
+  height: initial;
+}
+
+.depth01 > a:hover {
+  border-bottom: 2px solid #fff;
+}
+
+/* header .gnbList .depth01::after {
+  /* content: "";
+  display: none;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 34px;
+  left: 0; 
+} */
+
+header .gnbList .depth01:hover::after {
+  display: block;
+}
+
+header .gnbList .depth01 {
+  float: left;
+  position: relative;
+}
+
+header .gnbList .depth01 > a {
+  display: inline-block;
+  width: 100px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  height: 36px;
+}
+
+header .gnbList .depth01 > ul li {
+  margin: 10px 0;
+}
+
+header .gnbList .depth01 > a:active {
+  color: #b3b3b3;
+}
+
+header .gnbList li a:focus {
+  outline: 1px solid yellow;
+}
+
+/* 배너 */
+.container {
+  text-align: center;
+}
+
+.container .bannerList {
+  display: inline-block;
+}
+
+.bannerList {
+  display: inline-block;
+}
+
+.bannerList li {
+  display: inline-block;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-sizing: border-box;
+
+  border: 1px solid black;
+
+  line-height: 200px;
+  color: #fff;
+
+  margin: 10px;
+}
+
+.bannerList li:hover {
+  background-size: auto 120%;
+}
+
+.first {
+  background-image: url(./cat-gca0d7ada9_640.jpg);
+}
+
+.second {
+  background-image: url(./dog-gd86eac0c3_640.jpg);
+}
+
+.third {
+  background-image: url(./lion-g7b1ff1df9_640.jpg);
+}
+
+.bannerList li a {
+  display: inline-block;
+
+  width: 150px;
+  height: 200px;
+
+  /* text-decoration: none;
+  color: inherit; */
+}
+
+.bg {
+  height: 300px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.bg01 {
+  background-image: url(./cat-gca0d7ada9_640.jpg);
+}
+
+.bg02 {
+  background-image: url(./dog-gd86eac0c3_640.jpg);
+  background-position: center;
+  margin-top: 300px;
+}
+
+.bg03 {
+  background-image: url(./lion-g7b1ff1df9_640.jpg);
+  background-position: right;
+  margin-top: 300px;
+}

@@ -1,0 +1,122 @@
+.container {
+  /* width: 400px; */
+  height: 1000px;
+  border: 3px solid red;
+}
+
+.box {
+  height: 300px;
+  border: 2px solid rgb(99, 99, 99);
+  text-align: center;
+  line-height: 300px;
+  color: #fff;
+}
+
+.colorBox {
+  /* rgb 코드를 통한 배경색 지정*/
+  background-color: rgb(46, 148, 117);
+
+  /* 키워드를 통해서 배경색 지정 */
+  background-color: palevioletred;
+
+  background-image: url(./png-g96b7d9317_1920.png);
+  background-size: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+
+  /* 배경색의 지정범위를 설정 */
+  background-clip: content-box;
+  background-clip: border-box;
+}
+
+.imgBox {
+  background-image: url("./cat-gca0d7ada9_640.jpg");
+
+  background-color: aquamarine;
+  /* 배경 이미지의 크기 지정 */
+  background-size: 100px 20px;
+  background-size: 50%;
+  /* 사진이 찌그러지거나 잘리지 않는 선에서 가장 크게 표현. */
+  background-size: contain;
+  /* 사진이 찌그러지지 않는 선에서 가장 크게 표현. 꽉 채운다. */
+  background-size: cover;
+  background-size: 200px;
+
+  background-repeat: no-repeat;
+  background-repeat: no-repeat repeat;
+  background-repeat: repeat-x;
+  /* 공간이 늘어나면 배경 이미지도 늘어난다. 이미지를 추가 할 공간이 생기면 추가한다. */
+
+  background-repeat: round;
+  /* 이미지가 잘리지 않을 만큼만 반복. 나머지 공간은 빈 공간으로 둔다. */
+
+  background-repeat: space;
+  background-repeat: no-repeat;
+
+  /* x,y 순으로 키워드를 지정. */
+  background-position: center center;
+  background-position: center;
+
+  background-position: bottom right;
+
+  /* 길이를 지정하여 배경 이미지를 이동 */
+  background-position: 200px 50px;
+
+  /* 요소의 길이에 따라서 n%로 지정 */
+  background-position: 30%;
+
+  /* 오프셋을 통해서 기준으로 부터 오프셋만큼 이동 */
+  background-position: top 20px right 20px;
+}
+
+.pattern {
+  background-image: url(./abstract-gf3d550ef5_640.jpg);
+  background-size: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+
+  /* 배경이 content 영역에서 시작 */
+  background-origin: content-box;
+
+  /* 배경이 padding 영역에서 시작 */
+  background-origin: padding-box;
+
+  /* 배경이 border 영역에서 시작. */
+  background-origin: border-box;
+}
+
+.bg {
+  height: 500px;
+  border: 3px solid #000;
+
+  background-image: url(./cat-gca0d7ada9_640.jpg);
+  background-size: 100%;
+
+  overflow: scroll;
+  overflow-x: hidden;
+  /* 기본값. 배경 이미지를 요소에 고정. 스크롤 시 배경이미지는 스크롤X */
+  background-attachment: scroll;
+
+  /* 배경 이미지를 요소에 고정. 스크롤시 배경이 같이 스크롤. */
+  background-attachment: local;
+  /* 배경이 그려지는 기준이 요소가 아니라 스크롤 가능 영역. */
+  background-attachment: fixed;
+}
+
+body {
+  height: 1000px;
+}
+
+.bg02 {
+  height: 300px;
+  border: 3px solid #000;
+  background-size: 100%;
+  background-image: url(./cat-gca0d7ada9_640.jpg);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  margin-top: 100px;
+}

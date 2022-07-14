@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      /* 자식요소 중 n번째인지 확인. */
+      ul li:nth-child(even) {
+        /* n : 모든 인덱스. => 계산을 더하면 다양하게 인덱싱 가능. */
+        /* odd(홀수) , even(짝수) */
+        background-color: #b2b2b2;
+      }
+      /* 자식요소 중 첫번째인지 확인. */
+      ul li:first-child {
+        color: red;
+      }
+      /* 자식요소 중 마지막인지 확인. */
+      ul li:last-child {
+        color: orange;
+      }
+      /* 순서를 마지막부터 확인. */
+      ul li:nth-last-child(2) {
+        color: purple;
+      }
+
+      .brandList div:nth-child(odd) {
+        color: blue;
+      }
+
+      input {
+        border: 1px solid blue;
+      }
+
+      input:required {
+        border: 1px solid red;
+      }
+
+      .parent {
+        margin-top: 50px;
+      }
+
+      .parent::after {
+        content: "애프터";
+        color: red;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        첫번째
+        <a href="" class="target"></a>
+      </li>
+      <li>두번째</li>
+      <li>세번째</li>
+      <li>네번째</li>
+      <li>다섯번째</li>
+      <li>여섯번째</li>
+      <li>일곱번째</li>
+      <li>여덟번째</li>
+    </ul>
+
+    <div class="brandList">
+      <p>p태그</p>
+      <div>나이키</div>
+      <div>아디다스</div>
+      <div>뉴발란스</div>
+      <div>퓨마</div>
+      <div>반스</div>
+      <div>컨버스</div>
+    </div>
+
+    <input type="text" />
+    <input type="text" required />
+
+    <div class="parent">저는 부모입니다.</div>
+  </body>
+</html>

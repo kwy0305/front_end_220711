@@ -1,0 +1,68 @@
+li.orange {
+  color: orange;
+}
+
+li.orange#big {
+  font-size: 32px;
+}
+
+li.orange.bold {
+  font-weight: 700;
+}
+
+ul > li {
+  margin-top: 10px;
+}
+
+.target > div {
+  border: 1px solid #000;
+}
+
+.tabList li {
+  color: brown;
+}
+
+.tabList > li {
+  border: 1px solid #000;
+}
+
+.brandList .target {
+  font-weight: 700;
+}
+
+.brandList .target + li {
+  color: aqua;
+}
+
+.brandList .target ~ li {
+  color: red;
+}
+
+.productList .target h2 {
+  color: blue;
+}
+
+.productList .target h2 + p {
+  color: cadetblue;
+}
+
+.productList .product h2 {
+  color: blueviolet;
+}
+
+.productList .product h2 + p {
+  color: cadetblue;
+}
+
+.productList .price h2 {
+  color: chartreuse;
+}
+
+.productList .price h2 + p {
+  color: cadetblue;
+}
+
+.inputList input[type="checkbox"] {
+  margin-left: 100px;
+  border: 3px solid red;
+}
