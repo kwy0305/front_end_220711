@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+  line-height: 100px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+
+  /* 속성값이 변화하는 시간을 지정. */
+  transition-duration: 0.5s;
+
+  /* 속성값 변화에 지연시간을 지정. */
+  transition-delay: 500ms;
+
+  /* 속성값의 변화 속도 커브를 지정. */
+  transition-timing-function: ease-in;
+
+  /* transition을 적용하고자 하는 속성을 선택. */
+  transition-property: background-color;
+
+  /* transition을 변화된 상태에서 적용하면 되돌아 올 때 적용이 안된다. */
+}
+
+.box:active {
+  transform: translateX(20px);
+  background-color: black;
+  height: 150px;
+}

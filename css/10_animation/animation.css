@@ -1,0 +1,56 @@
+.container {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container .box {
+  width: 50px;
+  height: 50px;
+  background-color: chartreuse;
+
+  /* 실행 하려는 애니메이션 이름을 지정. */
+  animation-name: slideDown, disappear;
+  animation-duration: 2s; /*애니메이션을 2초에 걸쳐 실행. */
+  animation-delay: 0s, 1s; /* 애니메이션이 1초 뒤에 실행. */
+  animation-timing-function: linear; /* 애니메이션 속도를 지정. */
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+
+  /* 애니메이션 단축 속성. */
+  animation: slideDown 1s ease-in 0.5s 3 reverse forwards;
+
+  /* animation-play-state: paused; */
+}
+.container .box .disappear {
+  animation-name: disappear;
+  animation-duration: 1s;
+}
+
+/* 값의 변화를 작성.  */
+@keyframes slideDown {
+  from {
+    background-color: red;
+  }
+  to {
+    transform: translate(50px, 100px) scale(1.1);
+    background-color: yellow;
+  }
+}
+
+/* keyframe을 여러개 적용 하여 지점마다 변화 작성. */
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

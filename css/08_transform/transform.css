@@ -1,0 +1,127 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #c7c7c7;
+  text-align: center;
+  line-height: 100px;
+}
+
+.box + .box {
+  margin-top: 20px;
+}
+
+.container {
+  /* 원근감을 준다. 값이 클수록 멀리서 보는듯한 효과 (변화가 적다). */
+  perspective: 500px;
+  /* perspective-origin: bottom right; */
+}
+
+/* translate */
+.translateList .box:first-child:hover {
+  /* 마우스 호버 시 x축 방향으로 20px 이동. */
+  transform: translateX(20px);
+}
+
+.translateList .box:nth-child(2):hover {
+  /* 마우스 호버 시 y축 방향으로 10px 이동. */
+  transform: translateY(10px);
+}
+
+.translateList .box:nth-child(3):hover {
+  /* 마우스 호버 시 x축 10px, y축 10px 이동. */
+  transform: translate(10px, 10px);
+}
+
+.translateList .box:last-child:hover {
+  transform: translateZ(-100px);
+}
+
+/* scale */
+.scaleList .box:first-child:hover {
+  /* x축 방향을 1.1배로 확대. 비율을 입력해야 한다. */
+  /* 컨텐츠도 같이 확대/축소. */
+  transform: scaleX(1.1);
+  transform: scaleX(200%);
+  transform: scaleX(80%);
+  /* 음수값 입력 시 요소가 반전. */
+  /* transform: scaleX(-100%); */
+}
+
+.scaleList .box:nth-child(2):hover {
+  /* y축 방향을 1.2배로 확대. 비율을 입력해야 한다. */
+  /* 컨텐츠도 같이 확대/축소. */
+  transform: scaleY(1.2);
+  /* 음수값 입력 시 요소가 반전. */
+  /* transform: sclaeY(-80%); */
+}
+
+.scaleList .box:nth-child(3):hover {
+  /* x축으로 1.5배 y축으로 2배 확대 */
+  transform: scale(1.5, 2);
+  /* 1개만 입력시 x축 , y축 모두 1.2배 확대. */
+  transform: scale(1.2);
+}
+
+.scaleList .box:last-child:hover {
+  transform: scaleZ(-1.4);
+}
+
+/* rotate */
+.rotateList .box:first-child:hover {
+  /* x축을 시계방향으로 30도 만큼 회전. */
+  transform: rotateX(30deg);
+  transform-origin: bottom;
+}
+
+.rotateList .box:nth-child(2):hover {
+  /* y축을 시계방향으로 30도 만큼 회전. */
+  transform: rotateY(30deg);
+  transform-origin: left;
+}
+
+.rotateList .box:last-child:hover {
+  /* 시계 방향으로 90도 회전. */
+  /* 값이 음수면 반시계 방향으로 회전. */
+  transform: rotate(-45deg);
+}
+
+/* skew */
+.skewList .box:first-child:hover {
+  /* x축 방향으로 20도 기울임. */
+  transform: skewX(20deg);
+}
+
+.skewList .box:nth-child(2):hover {
+  /* y축 방향으로 40도 기울임. */
+  transform: skewY(40deg);
+}
+
+.skewList .box:last-child:hover {
+  /* x축 방향으로 10도 , y축 방향으로 20도 기울임 */
+  transform: skew(10deg, 20deg);
+}
+
+.dice {
+  margin-top: 100px;
+  perspective-origin: left bottom;
+  padding: 30px;
+}
+
+.surface {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+}
+
+.surface:first-child {
+  transform-origin: top;
+  background-color: rgba(255, 255, 0, 0.4);
+  transform: rotateX(-90deg);
+}
+
+.surface:nth-child(2) {
+  transform-origin: right;
+  background-color: rgba(0, 0, 255, 0.4);
+  transform: rotateY(-90deg);
+}
