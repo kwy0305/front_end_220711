@@ -17,11 +17,29 @@ a {
 }
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 36px;
+
   background-color: #b3b3b3;
-  font-size: 0;
   width: 100%;
   position: fixed;
+}
+
+header h1 {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: 36px;
+  line-height: 36px;
+}
+
+header .btns {
+  position: absolute;
+  right: 10px;
+  height: 36px;
+  line-height: 36px;
 }
 
 #header {
@@ -29,16 +47,21 @@ header {
 }
 
 header .gnbList {
-  font-size: 16px;
+  display: flex;
+  width: 400px;
   background-color: red;
-  display: inline-block;
   height: 36px;
   overflow: hidden;
   transition: 0.25s;
+  text-align: center;
 }
 
 header .gnbList:hover {
   height: 200px;
+}
+
+header .gnbList .depth01 {
+  flex: 1;
 }
 
 .depth01 > a:hover {
@@ -60,14 +83,8 @@ header .gnbList .depth01:hover::after {
   display: block;
 }
 
-header .gnbList .depth01 {
-  float: left;
-  position: relative;
-}
-
 header .gnbList .depth01 > a {
-  display: inline-block;
-  width: 100px;
+  display: block;
   padding: 10px 0;
   box-sizing: border-box;
   height: 36px;
@@ -87,28 +104,23 @@ header .gnbList li a:focus {
 
 /* 배너 */
 .container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .container .bannerList {
-  display: inline-block;
-}
-
-.bannerList {
-  display: inline-block;
+  text-align: center;
+  display: flex;
 }
 
 .bannerList li {
-  display: inline-block;
-
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
 
   box-sizing: border-box;
-
   border: 1px solid black;
-
+  border-radius: 4px;
   line-height: 200px;
   color: #fff;
 

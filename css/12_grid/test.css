@@ -1,0 +1,83 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearFix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr 100px;
+  grid-template-columns: 150px 1fr 1fr;
+}
+
+.container header {
+  grid-area: header;
+  background: #f2f2f2;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  position: relative;
+
+  max-height: 40px;
+  overflow: hidden;
+
+  transition: 0.25s ease-in;
+}
+
+.container header:hover {
+  max-height: 200px;
+
+  padding-bottom: 20px;
+}
+
+.container header h1 {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+}
+
+.container #gnb .gnbList {
+  text-align: center;
+}
+
+.container #gnb .gnbList > li {
+  float: left;
+}
+
+.container #gnb .gnbList > li .depth01 {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+}
+
+.container #gnb .gnbList > li ul li a {
+  display: block;
+  padding: 5px 10px;
+}
+
+aside {
+  background: #e9e9e9;
+  grid-area: sidebar;
+}
+
+main {
+  background: #eee;
+  grid-area: main;
+}
+
+footer {
+  background: #e1e1e1;
+  grid-area: footer;
+}

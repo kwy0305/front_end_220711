@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  width: 500px;
+  height: 300px;
+  border: 3px solid rebeccapurple;
+  flex-direction: column;
+
+  /* 주축에 대한 아이템들의 정렬을 지정한다. */
+  justify-content: flex-end;
+  justify-content: center;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  justify-content: center;
+
+  align-items: flex-end;
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  background-color: red;
+  margin: 5px;
+}
+
+.box:nth-child(1) {
+  justify-self: flex-start;
+  order: 3;
+}
+.box:nth-child(2) {
+  align-self: flex-start;
+}
