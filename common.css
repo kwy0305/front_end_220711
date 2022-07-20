@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e2e2e2;
+}
+
+:root {
+  --main-color: #772480;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearFix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
