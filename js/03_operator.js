@@ -50,7 +50,7 @@ console.log(score);
 // 동등 연산자 : 좌항과 우항이 일치하는지를 비교
 console.log("3 == 1 + 2", 3 == 1 + 2);
 console.log("3 == '3'", 3 == "3"); // == 연산자는 암묵적 자료형 변환(형변환)
-console.log("0 == ''", 0 == "");
+console.log("0 == ''", 0 == ""); // false는 0으로 평가
 console.log("false == 0 : ", false == 0); // 0은 falsy한 값  => false 는 아니지만 false처럼 취급.
 
 // 일치 연산자 : 좌항과 우항이 일치한지를 비교 => 값과 데이터 타입을 비교.
@@ -74,12 +74,12 @@ console.log(num1 >= 4); //  4  >= 4 => 성립 o = true
 console.log(num2 <= 10); // 10 <= 10 => 성립 o => true
 
 // 논리 연산자 : 좌항과 우항의 논리값의 조합에 따라 논리값 반환.
-// ||(or) : 좌항과 우항 중 하나라도 true => true
-// &&(and) : 좌항과 우항 모두 true => true
+// ||(or) : 좌항과 우항 중 하나라도 true => true , 모두 false => false
+// &&(and) : 좌항과 우항 모두 true => true , 둘중 하나라도 false => false
 // !(not) : 부정 => 논리값을 반전 true => false , false => true
 
 console.log(true || false); // or 연산자 좌항이 true => true;
-console.log(true && false); // 우항이 false => false
+console.log(true && false); // and 연산자  우항이 false => false
 console.log(3 > 1 && 4 < 10); // 좌항 우항 모두 true => true;
 console.log(!(2 == "2") && true == 1); // 좌항이 false => false
 console.log(!(false || false)); // 드모르간 법칙 (not A) && (not B) => 둘다 false면 false
@@ -109,4 +109,4 @@ console.log(
 console.log(10 + (2 * 2) / 4);
 
 // "황보석" 과 30의 데이터 타입을 비교 => 값 비교 X
-console.log(typeof 황보석 === 30);
+console.log(typeof "황보석" === typeof 30);

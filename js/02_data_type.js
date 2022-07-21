@@ -1,4 +1,4 @@
-// 식 : 값으로 평가돼서 새로운 값을 생성.
+// 표현식 : 값으로 평가돼서 새로운 값을 생성.
 // => 값으로 평가 될 수 있는 모든게 식.
 var result = 10 + 30;
 
@@ -8,11 +8,11 @@ if (true) console.log("진실"); // 조건문.
 
 // 자료형 : 프로그램이 처리할 수 있는 자료의 형태.
 
-// 숫자형(number) : ""없이 숫자만 입력.
+// 숫자형(number) :숫자를 나타내는 데이터.  ""없이 숫자만 입력.
 var year = 2022; // 정수.
 const PI = 3.14; // 실수.
 console.log(typeof year, typeof PI); // JS에서는 정수와 실수 구분 X.
-console.log(0.1 + 0.2);
+console.log(0.1 + 0.2); // 정밀한 수학 계산에는 JS는 적절하지 않다.
 
 // 문자열(string) : 문자를 나타내는 데이터. ""(큰따옴표), ''(작은따옴표)안에 문자를 작성.
 // => JS에서는 ""와 '' 구분 x => 문자와 문자열 구분 X.
@@ -25,7 +25,7 @@ console.log(typeof firstName, firstName);
 var isTrue = true;
 console.log(typeof isTrue);
 
-// 조건식의 결과로 반환. => 조건문에 사용.
+// 조건식의 결과로 논리형 데이터 반환. => 조건문에 사용.
 var isBig = 10 > 100;
 console.log(isBig);
 
