@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 200px;
+        background: black;
+      }
+      .changeBox {
+        margin-top: 10px;
+      }
+
+      .container {
+        width: 500px;
+        height: 300px;
+        padding: 20px;
+        border: 3px solid red;
+      }
+      .container .inner {
+        padding: 20px;
+        border: 3px solid blue;
+      }
+      .container .inner p {
+        padding: 20px;
+        border: 3px solid yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 인라인 방식의 이벤트 리스너 등록 => 잘 사용되지 않는다. -->
+    <!-- <div class="box" onclick="this.style.backgroundColor='red';"></div> -->
+    <div class="box"></div>
+    <div class="changeBox">
+      <div class="box"></div>
+      <button>빨간색</button>
+      <button>파란색</button>
+      <button>노란색</button>
+      <button>초록색</button>
+    </div>
+    <!-- 이벤트는 자식요소로부터 상위요소 전파(버블링) -->
+    <div class="container" onclick="alert('container!')">
+      container입니다.
+      <div class="inner" onclick="alert('inner!')">
+        inner입니다.
+        <p onclick="alert('p태그!')">p태그입니다!</p>
+      </div>
+    </div>
+    <script>
+      // 요소의 이벤트 리스너 속성에 콜백함수를 할당
+      let box = document.querySelector(".box");
+      box.onclick = function () {
+        box.style.backgroundColor = "red";
+      };
+      // 같은 이벤트에 콜백함수 재할당시 덮어씌운다.
+      box.onclick = function () {
+        alert("클릭!");
+      };
+
+      //  요소.addEventListener("처리할 이벤트", 콜백함수)
+      //  요소에 이벤트 리스너를 더한다 => 중복 적용
+      box.addEventListener("click", function (e) {
+        console.log(e);
+        box.style.border = "3px solid red";
+      });
+      box.addEventListener("click", function () {
+        box.style.backgroundColor = "blue";
+      });
+
+      box.addEventListener("click", consoleClick);
+      // 등록된 이벤트 삭제, 바로 삭제했기 때문에 콘솔 출력이 되지 않는다.
+      box.removeEventListener("click", consoleClick);
+
+      function consoleClick() {
+        console.log("클릭했습니다!");
+      }
+
+      // 문제 빨간색, 파란색, 초록색, 노란색 버튼 클릭시 박스의 색상 변경
+      // 클릭(이벤트)을 했을 때 색상 변경(요소 노드)
+      let changeBox = document.querySelector(".changeBox .box");
+      let btnList = document.querySelectorAll("button");
+      //   [
+      //     <button>빨간색</button>,
+      //     <button>파란색</button>,
+      //     <button>초록색</button>,
+      //     <button>노란색</button>,
+      //   ];
+      btnList[0].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "red";
+      });
+      btnList[1].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "blue";
+      });
+      btnList[2].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "green";
+      });
+      btnList[3].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "yellow";
+      });
+
+      //   let colorArr = ["red", "blue", "green", "yellow"];
+      //   for (let i = 0; i < btnList.length; i++) {
+      //     btnList[i].addEventListener("click", function () {
+      //       changeBox.style.backgroundColor = colorArr[i];
+      //     });
+      //   }
+
+      // Event.currentTarget : 이벤트 리스너가 등록된 요소
+      // Event.target : 실제 이벤트가 발생한 요소
+      let container = document.querySelector(".container");
+      container.addEventListener("click", function (e) {
+        console.log("e.target : ", e.target);
+        console.log("e.currentTarget : ", e.currentTarget);
+      });
+    </script>
+  </body>
+</html>

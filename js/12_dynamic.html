@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 400px;
+        height: 300px;
+        border: 5px solid red;
+      }
+      .container .box {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>저는 p태그입니다.</p>
+    </div>
+    <script>
+      let container = document.querySelector(".container");
+      // div 태그의 요소 노드 생성
+      let divEelem = document.createElement("div");
+      // 텍스트 노드 생성
+      let textNode = document.createTextNode("div태그 생성!");
+      // div 요소노드의 자식 노드로 텍스트 노드 추가
+      divEelem.appendChild(textNode);
+      // class 속성 노드 생성
+      let classAttr = document.createAttribute("class");
+      // class 속성에 box를 할당
+      classAttr.value = "box";
+      divEelem.setAttributeNode(classAttr);
+      // div 요소노드를 container의 자식 노드로 추가
+      container.appendChild(divEelem);
+      divEelem.addEventListener("click", function (e) {
+        // 부모 노드로 부터 자식요소(자신)을 삭제
+        let parent = e.target.parentNode;
+        parent.removeChild(e.target);
+      });
+
+      // setAttribute("속성이름", 속성값)
+      // container.setAttribute("class", "on");
+
+      let pElem = container.querySelector("p");
+      // p 태그 안에 있는 텍스트 노드를 참조
+      console.log(pElem.innerText);
+      // p 태그 안의 텍스트 노드의 내용 갱신(업데이트)
+      // 태그 감싸도 글씨 그대로 텍스트 노드에 반영
+      pElem.innerText = "<div>변경!</div>";
+
+      // container안의 html 요소들을 참조
+      console.log(container.innerHTML);
+      // container안의 html 요소들을 갱신(업데이트)
+      //   container.innerHTML = "<div>div태그 추가!</div>";s
+      // += 연산자를 사용하면 기존 내용을 지우지 않고 추가하는 것이 가능하다.
+      container.innerHTML += "<div class='box'>div태그 추가!</div>";
+
+      // str 변수에 먼저 문자열의 형태로 더해준 후 마지막에 innerHTML
+      let str = "";
+      for (let i = 0; i < 1000; i++) {
+        str += "<div class='box'>div태그 추가!</div>";
+        // let boxElem = document.createElement("div");
+        // boxElem.classList.add("box");
+        // let textNode = document.createTextNode("div태그 추가!");
+        // boxElem.appendChild(textNode);
+        // container.appendChild(boxElem);
+      }
+      container.innerHTML = str;
+    </script>
+  </body>
+</html>

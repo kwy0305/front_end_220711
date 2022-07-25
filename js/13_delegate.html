@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .container {
+        width: 100vw;
+        /* height: 100vh; */
+        border: 3px solid red;
+
+        box-sizing: border-box;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        background: black;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <button>생성!</button>
+    <ul class="todoList">
+      <li class="red">할일</li>
+      <li class="red">할일</li>
+      <li class="red">할일</li>
+    </ul>
+    <script>
+      let container = document.querySelector(".container");
+      let boxList = document.querySelectorAll(".box");
+      let button = document.querySelector("button");
+      // 이벤트 위임 : 이벤트를 상위요소에 위임
+      // e.target.matches(선택자) : 인자로 전달받은 선택자와 일치하면 true 반환
+      //  이벤트 위임하면 동적으로 추가된 요소에도 이벤트를 처리 할 수 있다.
+      container.addEventListener("click", function (e) {
+        if (e.target.matches(".container .box")) {
+          console.log("box");
+        } else if (e.target.matches(".container p button")) {
+          let parent = e.target.parentNode;
+          container.removeChild(parent);
+        }
+      });
+
+      button.addEventListener("click", function () {
+        container.innerHTML += "<p>p태그입니다. <button>삭제</button></p>";
+        // let divElem = document.createElement("div");
+        // divElem.classList.add("box");
+        // container.appendChild(divElem);
+      });
+
+      //  HTMLCollection은 실시간으로 반영되기 때문에 까다롭다.
+      let todoList = document.getElementsByClassName("red");
+      console.log(todoList);
+
+      for (let i = 0; i < todoList.length; i++) {
+        todoList[i].classList.remove("red");
+      }
+    </script>
+  </body>
+</html>

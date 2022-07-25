@@ -16,7 +16,7 @@ console.log(arr);
 console.log(arr[arr.length - 1]); // 배열의 마지막을 가리킨다.
 
 // 배열의 값 제거
-// delete 키워드를 통해서 삭제가 가능 => 배열의 길이가 바뀌지 않는다.
+// delete 키워드를 통해서 삭제가 가능 => 배열의 길이가 바뀌지 않는다. 권장 x
 delete arr[2];
 console.log(arr, arr.length);
 

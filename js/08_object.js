@@ -7,10 +7,12 @@ let user = {
   height: 173,
 };
 
-console.log(user.age);
+// 객체의 프로퍼티를 참조
+console.log(user.age); // 28 출력
 user.age = 31;
 user.weight = 70; // 없는 키값에 할당하면 새로운 프로퍼티 생성
 console.log("몸무게 : ", user["weight"]); // 객체 ["키값"] 처럼 [] 안에 문자열로 참조 가능
+// react에서 자세히 설명
 
 let arr = ["weight", "height", "name"];
 for (let i = 0; i < arr.length; i++) {
@@ -34,11 +36,11 @@ dog.bow();
 // this : 메서드를 호출한 객체를 가르킨다. => user.greeting();의 user가 this에 해당
 // this를 통해서 객체 고유값을 참조하는 메서드를 만들 수 있다.
 let user02 = {
-  age: 28,
-  name: "young",
+  age: 30,
+  name: "seok",
   height: 173,
   greeting: function () {
-    console.log("안녕하세요 ${this.name}입니다.");
+    console.log(`안녕하세요 ${this.name}입니다.`);
   },
 };
 
@@ -47,10 +49,9 @@ let user03 = {
   name: "minsu",
   height: 173,
   greeting: function () {
-    console.log("안녕하세요 ${this.name}입니다.");
+    console.log(`안녕하세요 ${this.name}입니다.`);
   },
 };
-
 user02.greeting();
 user03.greeting();
 
@@ -100,14 +101,19 @@ let car = {
   mileage: 16, // 연비
   gas: 20, // 연료량
   getDistance: function () {
-    console.log("주행 가능거리 : " + this.mileage * this.gas + "km");
+    console.log("주행가능거리 : " + this.mileage * this.gas + "km");
   },
   move: function (distance) {
     this.gas = this.gas - distance / this.mileage;
     console.log(`${distance}km 이동! 남은연료 : ${this.gas}l`);
   },
 };
-
 car.getDistance();
 car.move(48);
 car.move(32);
+car.move(10);
+car.move(20);
+
+// 예시 16km 연비의 자동차
+// car.move(32) => "32키로 이동! 남은연료 : 18l" 출력
+// car.move(48) => "48키로 이동! 남은연료 : 15l" 출력
