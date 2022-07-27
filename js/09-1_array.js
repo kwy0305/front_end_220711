@@ -88,7 +88,8 @@ console.log(userResult02);
 //  => 기존 배열 변경 x
 let numArr02 = [4, 6, 7, 10]; // => [8,12,14,20]
 let doubleNumArr = numArr02.map(function (num) {
-  return num * 2;
+  let result = num * 2;
+  return result;
 });
 // 화살표 함수 활용
 let divideNumArr = numArr02.map((num) => num / 2);
@@ -145,7 +146,8 @@ let actionMovieNameList = actionMovieList.map((movie) => movie.title);
 console.log(actionMovieList);
 console.log(actionMovieNameList);
 
-// reduce
+// reduce : 누산기
+//  특정 연산을 반복 실행한 결과를 누적해서 반환
 let scoreList = [90, 80, 70, 70, 60];
 
 let totalScore = 0;

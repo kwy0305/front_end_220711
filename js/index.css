@@ -141,6 +141,7 @@ header .btnSide {
     background-color: #fff;
     transition: transform 0.4s;
   }
+
   #gnb.on .gnbList {
     transform: translate(0);
   }
