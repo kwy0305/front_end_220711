@@ -81,7 +81,7 @@ console.log(Math.floor(115 / 10) * 10);
 // 소수점 이하 100의 자리만 올림 => 11.11 => 11.2
 console.log(Math.ceil(11.11 * 10) / 10);
 
-// 랜덤 : 0~1 사이의 실수를 반환
+// 랜덤 : 0~1 사이의 실수를 반환 (실제 랜덤은 아니다)
 console.log(Math.random());
 
 console.log(Math.floor(Math.random() * (100 - 1)) + 1);

@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#todoForm {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+#todoForm::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+#todoForm {
+  width: 300px;
+  height: 500px;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+#todoForm .inputBox {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+#todoForm .inputBox input {
+  flex: 1;
+  outline: none;
+  padding: 5px;
+}
+
+#todoForm .inputBox button {
+  border-width: 1px;
+  background-color: transparent;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+#todoForm .todoList li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #b3b3b3;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#todoForm .todoList li:hover .btnDel {
+  /* 자리는 차지하지만 마우스에 보이지 않고 감지되지않는다?.*/
+  visibility: visible;
+}
+
+#todoForm .todoList li .btnDel {
+  visibility: hidden;
+}
+
+#todoForm .todoList li.done {
+  color: #b3b3b3;
+  text-decoration: line-through;
+}
+
+#todoForm .todoList li .btnDel:hover {
+  color: red;
+}
