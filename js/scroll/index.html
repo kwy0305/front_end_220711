@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./index.js" defer></script>
+    <style>
+      html {
+        margin: 0;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        -ms-overflow-style: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 72px;
+        color: #fff;
+      }
+      section:nth-child(1) {
+        background-color: red;
+      }
+      section:nth-child(2) {
+        background-color: tomato;
+      }
+      section:nth-child(3) {
+        background-color: limegreen;
+      }
+      section:nth-child(4) {
+        background-color: lightblue;
+      }
+
+      .btns {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .btns .btnSec {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        line-height: 30px;
+        text-align: center;
+        font-weight: 700;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin: 20px 0;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btns .btnSec.active {
+        transform: scale(1.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section id="section01">1</section>
+      <section id="section02">2</section>
+      <section>3</section>
+      <section>4</section>
+    </div>
+    <div class="btns">
+      <div class="btnSec">1</div>
+      <div class="btnSec">2</div>
+      <div class="btnSec">3</div>
+      <div class="btnSec">4</div>
+    </div>
+  </body>
+</html>

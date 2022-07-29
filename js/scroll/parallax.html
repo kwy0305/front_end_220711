@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../todo-list/reset.css" />
+  </head>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      height: 300vh;
+    }
+    .background {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(./architecture-g3abb267bc_1280.jpg);
+      /* background-attachment: fixed; */
+      background-size: auto 120%;
+      background-repeat: no-repeat;
+      background-position: center;
+      /* background-position-y: 5px; */
+    }
+    .background p {
+      width: 50%;
+      color: #fff;
+      font-size: 32px;
+      position: absolute;
+    }
+    main {
+      position: relative;
+      height: 600px;
+      overflow: hidden;
+    }
+    main p {
+      font-size: 32px;
+      width: 500px;
+      position: absolute;
+    }
+    main p:nth-child(1) {
+      left: -500px;
+      top: 100px;
+    }
+    main p:nth-child(2) {
+      right: -500px;
+      bottom: 0;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div class="background">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+          molestias doloremque, inventore iste quae iusto quia explicabo ullam
+          numquam quidem.
+        </p>
+      </div>
+      <main>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit porro,
+          voluptatum, corrupti consequatur aperiam ut hic quam explicabo fuga
+          commodi eum sint perspiciatis, minima animi dicta excepturi cupiditate
+          vitae ullam!
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit porro,
+          voluptatum, corrupti consequatur aperiam ut hic quam explicabo fuga
+          commodi eum sint perspiciatis, minima animi dicta excepturi cupiditate
+          vitae ullam!
+        </p>
+      </main>
+    </div>
+
+    <script>
+      let background = document.querySelector(".background");
+      let textBox = document.querySelector(".background p");
+      let wrapper = document.querySelector(".wrapper");
+
+      let scrollValue = 0;
+      wrapper.addEventListener("wheel", function (e) {
+        e.preventDefault();
+        if (scrollValue + e.deltaY < 0) scrollValue = 0;
+        else if (scrollValue + e.deltaY > document.body.clientHeight)
+          scrollValue = document.body.clientHeight;
+        else scrollValue += e.deltaY - 20;
+        scrollTo({ top: scrollValue });
+      });
+
+      let mainContent = document.querySelector("main");
+      let mainTextList = mainContent.querySelectorAll("p");
+      // 부모요소로부터 상단 좌표
+      console.log(background.offsetTop, mainContent.offsetTop);
+      window.addEventListener("scroll", function () {
+        console.log(scrollY);
+        background.style.backgroundPositionY = `${-scrollY / 2}%`;
+        mainTextList[0].style.transform = `translate(${
+          scrollY - mainContent.offsetTop + 500
+        }px)`;
+        mainTextList[1].style.transform = `translate(${-(
+          scrollY -
+          mainContent.offsetTop +
+          500
+        )}px)`;
+
+        mainTextList[0].style.opacity =
+          (scrollY - mainContent.offsetTop + 500) / 400;
+        mainTextList[1].style.opacity =
+          (scrollY - mainContent.offsetTop + 500) / 400;
+      });
+    </script>
+  </body>
+</html>
