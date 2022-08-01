@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../todo-list/reset.css" />
+    <link rel="stylesheet" href="./reset.css" />
   </head>
   <style>
     html {
@@ -19,7 +19,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-image: url(./architecture-g3abb267bc_1280.jpg);
+      background-image: url("./hd-wallpaper-2750627_1920.jpg");
       /* background-attachment: fixed; */
       background-size: auto 120%;
       background-repeat: no-repeat;
@@ -99,7 +99,7 @@
         console.log(scrollY);
         background.style.backgroundPositionY = `${-scrollY / 2}%`;
         mainTextList[0].style.transform = `translate(${
-          scrollY - mainContent.offsetTop + 500
+          scrollY - mainContent.offsetTop + 700
         }px)`;
         mainTextList[1].style.transform = `translate(${-(
           scrollY -
@@ -107,10 +107,21 @@
           500
         )}px)`;
 
-        mainTextList[0].style.opacity =
-          (scrollY - mainContent.offsetTop + 500) / 400;
-        mainTextList[1].style.opacity =
-          (scrollY - mainContent.offsetTop + 500) / 400;
+        console.log(scrollY - mainTextList[0].offsetTop);
+        mainTextList[0].style.opacity = `${
+          // offsetTop - position 값이 relative인 상위 요소로부터 좌표값
+          //   => position값이 relative인 상위요소가 없다면 절대 좌표
+          (scrollY -
+            (mainContent.offsetTop + mainTextList[0].offsetTop - 700)) /
+          400
+        }`;
+        mainTextList[1].style.opacity = `${
+          // offsetTop - position 값이 relative인 상위 요소로부터 좌표값
+          //   => position값이 relative인 상위요소가 없다면 절대 좌표
+          (scrollY -
+            (mainContent.offsetTop + mainTextList[1].offsetTop - 700)) /
+          400
+        }`;
       });
     </script>
   </body>

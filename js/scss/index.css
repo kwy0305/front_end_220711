@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding: 0 10px;
+}
+header #logo {
+  margin-right: 100px;
+}
+header #gnb .gnbList {
+  display: flex;
+}
+header #gnb .gnbList li {
+  margin: 0 10px;
+}
+header #gnb .gnbList li:hover {
+  color: #eb0000;
+}
+header #gnb .gnbList li:hover a {
+  text-decoration: underline;
+}
+header .btnSide {
+  display: none;
+}
+
+.slideContainer {
+  overflow: hidden;
+}
+.slideContainer ul {
+  display: flex;
+  transition: transform 0.4s;
+}
+.slideContainer ul .slide {
+  width: 100vw;
+  height: 300px;
+}
+.slideContainer ul .slide:nth-child(1) {
+  background-color: red;
+}
+.slideContainer ul .slide:nth-child(2) {
+  background-color: blue;
+}
+.slideContainer ul .slide:nth-child(3) {
+  background-color: yellow;
+}
+.slideContainer ul .slide:nth-child(4) {
+  background-color: lime;
+}
+.slideContainer ul .slide:nth-child(5) {
+  background-color: orange;
+}
+.slideContainer ul .slide:nth-child(6) {
+  background-color: black;
+}
+.slideContainer .pagination {
+  display: flex;
+  justify-content: center;
+}
+.slideContainer .pagination button {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modalBg .modal {
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+}
+.modalBg .modal .titleBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+.modalBg .modal .titleBox .btnClose {
+  cursor: pointer;
+}
+.modalBg .modal .contentBox {
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 40px;
+    justify-content: space-between;
+  }
+  header #gnb {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  header #gnb .gnbList {
+    flex-direction: column;
+    position: absolute;
+    width: 200px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+  }
+  header #gnb .gnbList li {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #000;
+    margin: 0;
+    padding: 0 10px;
+  }
+  header .btnSide {
+    display: block;
+  }
+}/*# sourceMappingURL=index.css.map */

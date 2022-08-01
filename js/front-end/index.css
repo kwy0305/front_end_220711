@@ -47,6 +47,9 @@ header .btnSide {
   user-select: none;
   cursor: pointer;
 }
+.slideContainer ul li {
+  width: 100vw;
+}
 
 .slideContainer ul.drag {
   transition: 0s;
@@ -141,7 +144,6 @@ header .btnSide {
     background-color: #fff;
     transition: transform 0.4s;
   }
-
   #gnb.on .gnbList {
     transform: translate(0);
   }
