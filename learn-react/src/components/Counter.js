@@ -8,12 +8,18 @@ function Counter() {
 
   console.log(count);
   function add() {
+    // 비동기적으로 작동 => 일괄적으로 처리
+    //   => 한번만 실행
+    setCount(count + increaseNum);
+    setCount(count + increaseNum);
     setCount(count + increaseNum);
   }
 
   function sub() {
     // 최적화할 때 사용
     // 함수형 업데이트 : set함수의 인자로 콜백함수를 전달하면 콜백함수의 첫번째 인자로 최신 상태값을 전달
+    setCount((num) => num - increaseNum);
+    setCount((num) => num - increaseNum);
     setCount((num) => num - increaseNum);
   }
 
