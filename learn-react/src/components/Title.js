@@ -1,14 +1,11 @@
-import React from "react";
+import styled from "styled-components";
 
-class Title extends React.Component {
-  static defaultProps = {
-    text: "react",
-  };
-  render() {
-    const { text } = this.props;
-
-    return <div>{text}</div>;
-  }
+export default function Title({ title }) {
+  return <TitleText>{title}</TitleText>;
 }
 
-export default Title;
+const TitleText = styled.h2`
+  font-size: 32px;
+  color: #fff;
+  font-weight: 400;
+`;

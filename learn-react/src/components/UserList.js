@@ -1,5 +1,4 @@
 // 매개변수가 {userList : [...]} 형식으로 전달 => 비구조화 할당
-
 import React, { useEffect } from "react";
 
 const User = React.memo(({ user, onRemove, onToggle }) => {
@@ -18,7 +17,7 @@ const User = React.memo(({ user, onRemove, onToggle }) => {
       // clearTimout, clearInterval
       // 라이브러리 인스턴스 지울 때
     };
-  }, [id]);
+  }, []);
 
   // deps : [] 안에 전달한 값이 변할때 마다 실행
   //   => ex) keyword라는 상태값을 디펜던시에 넣고 keyword에 변화가 있을 때마다 API 호출
