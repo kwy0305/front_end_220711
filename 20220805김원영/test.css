@@ -30,43 +30,87 @@ header {
   margin-left: 30px;
 }
 
-header .btnSide {
+header .sideBtn {
   display: none;
   cursor: pointer;
 }
-
-.slideContainer {
-  overflow: hidden;
-}
-
-.slideContainer ul {
-  width: 300vw;
+.slide {
   display: flex;
-  transition: 0.3s;
-  user-select: none;
-  cursor: pointer;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
-.slideContainer ul li {
-  width: 100vw;
-}
-
-.slideContainer ul.drag {
-  transition: 0s;
-}
-.slideContainer ul .slide {
-  width: 100vw;
+.slide_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0px;
+  width: 100%;
   height: 300px;
+  flex-shrink: 0;
+  transition: left 0.15s;
+}
+.slide_button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: tomato;
-  color: white;
+
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 (구글링) */
+  top: calc(50% - 16px);
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-color: #cccc;
+  cursor: pointer;
 }
-.slideContainer ul .slide:nth-child(2) {
+
+.slide_prev_button {
+  left: 10px;
+}
+.slide_next_button {
+  right: 10px;
+}
+
+.slide_item:nth-child(1) {
+  background-color: red;
+}
+.slide_item:nth-child(2) {
+  background-color: blue;
+}
+.slide_item:nth-child(3) {
   background-color: yellow;
 }
-.slideContainer ul .slide:nth-child(3) {
-  background-color: blue;
+.slide_item:nth-child(4) {
+  background-color: green;
+}
+.slide_item:nth-child(5) {
+  background-color: purple;
+}
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.slide_pagination {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slide_pagination > li {
+  color: #03275a34;
+  cursor: pointer;
+  font-size: 25px;
+}
+.slide_pagination > li.active {
+  color: #03275a34;
 }
 
 .modalBg {
@@ -105,11 +149,11 @@ header .btnSide {
 .modalBg.hide {
   height: 0;
   overflow: hidden;
-  transition-delay: 0.4s;
+  transition-delay: 0.05s;
 }
 .modalBg.hide .modal {
   opacity: 0;
-  transition: 0.4s;
+  transition: 0.05s;
 }
 
 @media (max-width: 768px) {
@@ -125,7 +169,7 @@ header .btnSide {
     height: 0;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.2);
-    transition-delay: 0.5s;
+    transition-delay: 0.4s;
     z-index: 100;
   }
   #gnb.on {
@@ -140,7 +184,7 @@ header .btnSide {
     transform: translate(300px);
     flex-direction: column;
     background-color: #fff;
-    transition: transform 0.5s;
+    transition: transform 0.4s;
   }
   #gnb.on .gnbList {
     transform: translate(0);
@@ -151,11 +195,11 @@ header .btnSide {
   #gnb .gnbList li a {
     display: block;
     padding: 0 10px;
-    height: 40px;
-    line-height: 40px;
+    height: 50px;
+    line-height: 50px;
     border-bottom: 1px solid #e8e8e8;
   }
-  header .btnSide {
+  header .sideBtn {
     display: block;
   }
 }

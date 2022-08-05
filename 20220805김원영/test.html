@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사이드바+슬라이더+모달창</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <link rel="stylesheet" href="../js/front-end/reset.css" />
+    <link rel="stylesheet" href="./test.css" />
+    <script src="./test.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="logo"><i class="xi-pen"></i><a href="">20220805 김원영</a></h1>
+      <nav id="gnb">
+        <h2 class="hidden">Global Navigation</h2>
+        <ul class="gnbList">
+          <li><a href="">사이드바 구현</a></li>
+          <li><a href="">슬라이드 구현</a></li>
+          <li><a href="">모달창 구현</a></li>
+        </ul>
+      </nav>
+      <div class="sideBtn">
+        <i class="xi-bars"></i>
+      </div>
+    </header>
+    <div class="slide slideContainer">
+      <div class="slide_item">1</div>
+      <div class="slide_item">2</div>
+      <div class="slide_item">3</div>
+      <div class="slide_item">4</div>
+      <div class="slide_item">5</div>
+      <div class="slide_prev_button slide_button">
+        <i class="xi-arrow-left"></i>
+      </div>
+      <div class="slide_next_button slide_button">
+        <i class="xi-arrow-right"></i>
+      </div>
+      <ul class="slide_pagination"></ul>
+    </div>
+    <div class="modalBg">
+      <div class="modal">
+        <div class="titleBox">
+          <h3>모달창</h3>
+          <div class="btnClose">
+            <i class="xi-close"></i>
+          </div>
+        </div>
+        <div class="contentBox">
+          <p>모달창의 컨텐츠내용.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
