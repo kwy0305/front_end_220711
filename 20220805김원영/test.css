@@ -39,7 +39,7 @@ header .sideBtn {
   flex-wrap: nowrap;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 100vw;
 }
 .slide_item {
   display: flex;
@@ -47,7 +47,7 @@ header .sideBtn {
   justify-content: center;
   position: relative;
   left: 0px;
-  width: 100%;
+  width: 100vw;
   height: 300px;
   flex-shrink: 0;
   transition: left 0.15s;
@@ -75,19 +75,19 @@ header .sideBtn {
 }
 
 .slide_item:nth-child(1) {
-  background-color: red;
+  background-color: lightblue;
 }
 .slide_item:nth-child(2) {
-  background-color: blue;
+  background-color: lightcoral;
 }
 .slide_item:nth-child(3) {
-  background-color: yellow;
+  background-color: lightcyan;
 }
 .slide_item:nth-child(4) {
-  background-color: green;
+  background-color: lightgreen;
 }
 .slide_item:nth-child(5) {
-  background-color: purple;
+  background-color: lightslategrey;
 }
 
 ul,
