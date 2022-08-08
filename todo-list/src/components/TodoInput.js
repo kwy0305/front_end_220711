@@ -1,16 +1,17 @@
-import { useState } from "react";
 import styled, { css } from "styled-components";
 import { active_color, hover_color, main_color } from "../color";
 
-export default function TodoInput({ onCreate }) {
-  const [isEdit, setIsEdit] = useState(false);
-  const [input, setInput] = useState("");
-
+export default function TodoInput({
+  onCreate,
+  onChangeInput,
+  onChangeEdit,
+  input,
+  isEdit,
+}) {
   const onSubmit = () => {
     if (input !== "") {
       onCreate(input);
-      setInput("");
-      setIsEdit(false);
+      onChangeEdit(false);
     }
   };
 
@@ -18,17 +19,13 @@ export default function TodoInput({ onCreate }) {
     <Block isEdit={isEdit}>
       {/* 조건부 렌더링 : isEdit 이 true일 때만 뒤에 값을 평가(렌더링) */}
       {/* {\isEdit && <input type="text" />} */}
-      <input
-        type="text"
-        onChange={(e) => setInput(e.target.value)}
-        value={input}
-      />
+      <input type="text" onChange={onChangeInput} value={input} />
       {isEdit ? (
         <Button isNotEmpty={input !== ""} onClick={onSubmit}>
           Submit
         </Button>
       ) : (
-        <Button isNotEmpty={true} onClick={() => setIsEdit(true)}>
+        <Button isNotEmpty={true} onClick={() => onChangeEdit(true)}>
           Add
         </Button>
       )}

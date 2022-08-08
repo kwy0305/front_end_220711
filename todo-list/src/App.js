@@ -3,7 +3,8 @@ import TodoHeader from "./components/TodoHeader";
 import { createGlobalStyle } from "styled-components";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import { useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
+import { useTodo } from "./useTodo";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -20,46 +21,78 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-function App() {
-  // useReducer 한번에 관리할 수 있게 변경
-  const [todoList, setTodoList] = useState([
+const initialState = {
+  todoList: [
     { id: 1, text: "투두 리스트 화면 그리기", done: false },
     { id: 2, text: "투두 리스트 기능 구현하기", done: false },
-  ]);
+  ],
+  input: "",
+  isEdit: false,
+};
 
-  const nextId = useRef(3);
+function reducer(state, action) {
+  switch (action.type) {
+    case "create":
+      return {
+        ...state,
+        input: "",
+        todoList: state.todoList.concat(action.todo),
+      };
+    case "toggle":
+      return {
+        ...state,
+        todoList: state.todoList.map((todo) =>
+          todo.id === action.id ? { ...todo, done: !todo.done } : todo
+        ),
+      };
+    case "remove":
+      return {
+        ...state,
+        todoList: state.todoList.filter((todo) => todo.id !== action.id),
+      };
+    case "change_input":
+      return { ...state, input: action.input };
+    case "change_edit":
+      return { ...state, isEdit: action.isEdit };
+    default:
+      return state;
+  }
+}
+
+function App() {
+  // useReducer 한번에 관리할 수 있게 변경
+  const {
+    state,
+    createTodo,
+    toggleTodo,
+    removeTodo,
+    changeInput,
+    changeIsEdit,
+  } = useTodo();
+
+  const { todoList, input, isEdit } = state;
 
   const count = useMemo(() => {
     return todoList.filter((todo) => !todo.done).length;
   }, [todoList]);
-
-  const onCreate = (text) => {
-    // Array.prototype.concat() : 인자로 받은 배열을 합쳐서 새로운 배열을 반환
-    setTodoList(todoList.concat({ id: nextId.current, text, done: false }));
-    nextId.current++;
-  };
-
-  const onToggle = (id) => {
-    console.log("토글");
-    setTodoList(
-      todoList.map((todo) => {
-        return todo.id === id ? { ...todo, done: !todo.done } : todo;
-      })
-    );
-  };
-
-  const onRemove = (id) => {
-    console.log("제거");
-    setTodoList(todoList.filter((todo) => todo.id !== id));
-  };
 
   return (
     <>
       <GlobalStyle />
       <TodoBox>
         <TodoHeader count={count} />
-        <TodoList todoList={todoList} onToggle={onToggle} onRemove={onRemove} />
-        <TodoInput onCreate={onCreate} />
+        <TodoList
+          todoList={todoList}
+          onToggle={toggleTodo}
+          onRemove={removeTodo}
+        />
+        <TodoInput
+          onCreate={createTodo}
+          onChangeInput={changeInput}
+          input={input}
+          isEdit={isEdit}
+          onChangeEdit={changeIsEdit}
+        />
       </TodoBox>
     </>
   );
