@@ -1,11 +1,12 @@
 const slide = document.querySelector(".slide");
+
 const prevBtn = document.querySelector(".slide_prev_button");
 const nextBtn = document.querySelector(".slide_next_button");
 
 const slideItems = document.querySelectorAll(".slide_item");
-const maxSlide = slideItems.length;
+const maxSlide = slideItems.length - 1;
 
-let currSlide = 1;
+let currSlide = 0;
 
 const pagination = document.querySelector(".slide_pagination");
 
@@ -17,35 +18,32 @@ for (let i = 0; i < maxSlide; i++) {
 const paginationItems = document.querySelectorAll(".slide_pagination > li");
 console.log(paginationItems);
 
+let slideWidth = slide.clientWidth;
 nextBtn.addEventListener("click", () => {
-  currSlide++;
-  if (currSlide <= maxSlide) {
-    const offset = slideWidth * (currSlide - 1);
+  if (currSlide < maxSlide) {
+    currSlide++;
+    // const offset = slideWidth * (currSlide - 1);
     slideItems.forEach((i) => {
-      i.setAttribute("style", `left: ${-offset}px`);
+      i.setAttribute("style", `left: ${-100 * currSlide}vw`);
     });
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
-  } else {
-    currSlide--;
   }
 });
 
 prevBtn.addEventListener("click", () => {
-  currSlide--;
   if (currSlide > 0) {
-    const offset = slideWidth * (currSlide - 1);
+    currSlide--;
     slideItems.forEach((i) => {
-      i.setAttribute("style", `left: ${-offset}px`);
+      i.setAttribute("style", `left: ${-100 * currSlide}vw`);
     });
     paginationItems.forEach((i) => i.classList.remove("active"));
     paginationItems[currSlide - 1].classList.add("active");
-  } else {
-    currSlide++;
   }
 });
 
 window.addEventListener("resize", function () {
+  slideWidth = slide.clientWidth;
   if (this.innerWidth > 768) {
     gnb.classList.remove("on");
   }
