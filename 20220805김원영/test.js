@@ -1,6 +1,4 @@
 const slide = document.querySelector(".slide");
-let slideWidth = slide.clientWidth;
-
 const prevBtn = document.querySelector(".slide_prev_button");
 const nextBtn = document.querySelector(".slide_next_button");
 
