@@ -21,44 +21,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const initialState = {
-  todoList: [
-    { id: 1, text: "투두 리스트 화면 그리기", done: false },
-    { id: 2, text: "투두 리스트 기능 구현하기", done: false },
-  ],
-  input: "",
-  isEdit: false,
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "create":
-      return {
-        ...state,
-        input: "",
-        todoList: state.todoList.concat(action.todo),
-      };
-    case "toggle":
-      return {
-        ...state,
-        todoList: state.todoList.map((todo) =>
-          todo.id === action.id ? { ...todo, done: !todo.done } : todo
-        ),
-      };
-    case "remove":
-      return {
-        ...state,
-        todoList: state.todoList.filter((todo) => todo.id !== action.id),
-      };
-    case "change_input":
-      return { ...state, input: action.input };
-    case "change_edit":
-      return { ...state, isEdit: action.isEdit };
-    default:
-      return state;
-  }
-}
-
 function App() {
   // useReducer 한번에 관리할 수 있게 변경
   const {
