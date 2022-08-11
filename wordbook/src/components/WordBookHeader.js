@@ -1,20 +1,28 @@
 import styled, { css } from "styled-components";
+import { useWordState } from "../contexts/WordContext";
 
-export default function WordBookHeader({ state }) {
+export default function WordBookHeader() {
+  const state = useWordState();
   const count = state.length;
   const memorizedNum = state.filter((word) => word.active).length;
-  console.log(count, memorizedNum);
+  // NaN은 falsy한 값
+  //   => 값1 || 값2 를 사용하면 값1이 true이면 값1을, 값1이 false면 값2로 평가
+  //   => 0 / 0 은 0이 아니라 NaN
+  const percent = (memorizedNum / count) * 100 || 0;
+
   const todayStr = new Date().toLocaleDateString("ko-KR", {
     dateStyle: "full",
   });
+
+  console.log(0 / 0);
   return (
     <HeaderBlock>
       <h2>{todayStr}</h2>
       <p>
         외운 단어 : {memorizedNum}/{count}
       </p>
-      <StatusBar status={(memorizedNum / count) * 100}>
-        <p>{parseInt((memorizedNum / count) * 100)}%</p>
+      <StatusBar status={percent}>
+        <p>{Math.floor(percent)}%</p>
       </StatusBar>
     </HeaderBlock>
   );

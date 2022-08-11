@@ -1,45 +1,40 @@
 import { useState } from "react";
+import { useWordDispatch, useWordNextId } from "../contexts/WordContext";
 import styled from "styled-components";
 
-// 영어만 정규표현식
-const engReg = /^[a-zA-Z]*$/;
-export default function WordInput({ onCreate }) {
+export default function WordInput() {
   const [inputs, setInputs] = useState({
     eng: "",
     kor: "",
   });
   const { eng, kor } = inputs;
 
+  const dispatch = useWordDispatch();
+  const nextId = useWordNextId();
   const onChange = (e) => {
     const { name, value } = e.target;
-    // eng input에 한글 입력시 경고창 출력
-    if (!engReg.test(value) && name === "eng") {
-      alert("영어만 입력 가능합니다");
-    } else {
-      setInputs({
-        ...inputs,
-        [name]: value,
-      });
-    }
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   };
 
-  const onSubmit = (e) => {
+  const onCreate = (e) => {
     e.preventDefault();
-    // 영어와 한글 중 빈문자열이 없을 경우만 단어 추가
-    if (eng.trim() === "" || kor.trim() === "") {
-      alert("영어와 한글 모두 입력해주세요");
-    } else {
-      onCreate(eng, kor.split(","));
-      setInputs({
-        eng: "",
-        kor: "",
-      });
-    }
+    dispatch({
+      type: "create_word",
+      word: { id: nextId.current, eng, kor: kor.split(","), active: false },
+    });
+    setInputs({
+      eng: "",
+      kor: "",
+    });
+    nextId.current++;
   };
 
   return (
     // 키보드와 마우스 입력 둘다 가능하게
-    <InputBlock onSubmit={onSubmit}>
+    <InputBlock onSubmit={onCreate}>
       <input
         type="text"
         placeholder="영단어를 입력해주세요"

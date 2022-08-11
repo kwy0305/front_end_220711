@@ -1,5 +1,6 @@
 import WordBook from "./components/WordBook";
 import { createGlobalStyle } from "styled-components";
+import { WordProvider } from "./contexts/WordContext";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -16,7 +17,9 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      <WordBook />
+      <WordProvider>
+        <WordBook />
+      </WordProvider>
     </div>
   );
 }
