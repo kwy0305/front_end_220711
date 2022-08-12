@@ -6,12 +6,32 @@ import Button from "./Button";
 
 export default function Form() {
   // 상태값에 따라 어떻게 보여줄 것인가?
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
   const [hide, setHide] = useState(true);
   const displayText = hide ? "Show" : "Hide";
+  const { username, password } = inputs;
+  const btnActive = username.length > 0 && password.length > 5;
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <FormBlock>
-        <Input />
+        <Input
+          placeholder="username, phone or email"
+          onChange={handleInput}
+          name="username"
+          value={username}
+        />
         <Input
           rightContent={
             <BtnDisplay onClick={() => setHide(!hide)}>
@@ -19,8 +39,12 @@ export default function Form() {
             </BtnDisplay>
           }
           hide={hide}
+          placeholder="password"
+          onChange={handleInput}
+          name="password"
+          value={password}
         />
-        <Button text="Log in" margin={"margin-top: 15px"} />
+        <Button text="Log in" margin={"margin-top: 15px"} active={btnActive} />
       </FormBlock>
     </form>
   );

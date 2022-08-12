@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { bg_color, border_color } from "../../colors";
 import logoImg from "../../assets/images/instagram_logo.png";
 import Form from "./common/Form";
-
 console.log(logoImg);
 
 export default function Instagram() {
