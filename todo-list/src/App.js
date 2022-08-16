@@ -1,10 +1,6 @@
-import TodoBox from "./components/TodoBox";
-import TodoHeader from "./components/TodoHeader";
 import { createGlobalStyle } from "styled-components";
-import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
-import { useMemo } from "react";
-import { useTodo } from "./useTodo";
+import TodoBox from "./components/revise/TodoBox";
+import { TodoProvider } from "./contexts/useTodoContext";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -22,40 +18,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  // useReducer 한번에 관리할 수 있게 변경
-  const {
-    state,
-    createTodo,
-    toggleTodo,
-    removeTodo,
-    changeInput,
-    changeIsEdit,
-  } = useTodo();
-
-  const { todoList, input, isEdit } = state;
-
-  const count = useMemo(() => {
-    return todoList.filter((todo) => !todo.done).length;
-  }, [todoList]);
-
   return (
     <>
       <GlobalStyle />
-      <TodoBox>
-        <TodoHeader count={count} />
-        <TodoList
-          todoList={todoList}
-          onToggle={toggleTodo}
-          onRemove={removeTodo}
-        />
-        <TodoInput
-          onCreate={createTodo}
-          onChangeInput={changeInput}
-          input={input}
-          isEdit={isEdit}
-          onChangeEdit={changeIsEdit}
-        />
-      </TodoBox>
+      <TodoProvider>
+        <TodoBox />
+      </TodoProvider>
     </>
   );
 }

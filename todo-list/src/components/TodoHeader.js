@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { main_color } from "../color";
+import { main_color } from "../colors";
 
 export default function TodoHeader({ count }) {
   const todayStr = new Date().toLocaleDateString("ko-KR", {

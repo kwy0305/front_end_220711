@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { active_color, hover_color, main_color } from "../color";
+import { active_color, hover_color, main_color } from "../colors";
 
 export default function TodoInput({
   onCreate,
