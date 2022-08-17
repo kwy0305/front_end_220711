@@ -2,13 +2,13 @@ import styled from "styled-components";
 import React from "react";
 import { useTodoState } from "../../contexts/useTodoContext";
 
-export default function TodoHeader({ totalCount, doneCount }) {
+export default React.memo(function TodoHeader({ totalCount, doneCount }) {
   const todayStr = new Date().toLocaleDateString("ko-KR", {
     dateStyle: "full",
   });
   // todo_list와 input이 하나의 state로 관리되기 때문에
   // 여기서 사용하지 않는 input이 업데이트가 되어도 리렌더링이 일어난다.
-  // const {todo_list} = useTodoState();
+  // const { todo_list } = useTodoState();
 
   const percent =
     totalCount === 0 ? 0 : Math.floor((doneCount / totalCount) * 100);
@@ -24,7 +24,7 @@ export default function TodoHeader({ totalCount, doneCount }) {
       </StatusBar>
     </Block>
   );
-}
+});
 
 const Block = styled.div`
   border-bottom: 1px solid #ddd;
