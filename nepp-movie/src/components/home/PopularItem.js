@@ -1,16 +1,20 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function PopularItem({ item }) {
-  const { title, name, release_date, first_air_date, poster_path } = item;
+  const { id, title, name, release_date, first_air_date, poster_path } = item;
   const imgUrl = `https://image.tmdb.org/t/p/w300${poster_path}`;
 
+  console.log(item);
   return (
     <ItemBlock>
-      <ImgBox>
-        <img src={imgUrl} alt={title || name} />
-      </ImgBox>
-      <Title>{title || name}</Title>
-      <ReleaseDate>{release_date || first_air_date}</ReleaseDate>
+      <Link to={`/${title ? "movie" : "tv"}/${id}`}>
+        <ImgBox>
+          <img src={imgUrl} alt={title || name} />
+        </ImgBox>
+        <Title>{title || name}</Title>
+        <ReleaseDate>{release_date || first_air_date}</ReleaseDate>
+      </Link>
     </ItemBlock>
   );
 }

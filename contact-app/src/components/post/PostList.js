@@ -73,12 +73,12 @@ export default function PostList() {
     fetchData();
   };
 
-  // {id : 1, title : 'aaa' , author: "황보석"}
-  // { author: "황보석"}
+  // {id : 1, title : 'aaa' , author: "김원영"}
+  // { author: "김원영"}
 
   const patchPost = async (id) => {
     let result = await instance.patch("/posts/" + id, {
-      author: "황보석",
+      author: "김원영",
     });
     fetchData();
   };
