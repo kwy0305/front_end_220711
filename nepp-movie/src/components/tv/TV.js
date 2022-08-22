@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import DetailBox from "../common/detail/DetailBox";
+import DetailBox from "../detail/DetailBox";
 
 export default function TV() {
   return (

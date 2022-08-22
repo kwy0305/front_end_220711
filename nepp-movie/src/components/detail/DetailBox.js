@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getDetail } from "../../../custom-axios";
-import Loading from "../Loading";
+import { getDetail } from "../../custom-axios";
+import Loading from "../common/Loading";
 
 // /movie/:id  => /movie/123
 //   => usePrams() => {id : 123}

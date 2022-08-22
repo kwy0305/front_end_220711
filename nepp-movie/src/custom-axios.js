@@ -3,14 +3,15 @@ const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   headers: {
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzUxMzgyOGY0MGU4YTgwNzMxYjBhN2Y1YTUwMjExNSIsInN1YiI6IjVlOGE3YjhiYjE4ZjMyMDAxM2UyZDUwZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Uqfn7ygDJUCKh_TZhcuGR2qIVxYRJD8QSLGyP9XwfcM",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNTVjYTJiY2U4YTRkM2I4ZjNlYTZlNWUxOTNjODU3NyIsInN1YiI6IjYyZmU0ZjEyMjVjZDg1MDA3ZWMyN2UwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.osTt12oVCvNLCd2ZJlEAYx-aRMlboDBor4MNqd3QvVw",
   },
 });
 
-export const getPopular = async (category) => {
+export const getPopular = async (category, page) => {
   let { data } = await instance.get(`${category}/popular`, {
     params: {
       language: "ko-KR",
+      page,
     },
   });
 
@@ -25,4 +26,21 @@ export const getDetail = async (url) => {
   let result = await instance.get(`${url}?language=ko-KR`);
 
   return result;
+};
+
+// /movie/{movie_id}/credits => 배우, 제작진 등
+// cast => 배우들
+
+export const getSearch = async (query) => {
+  try {
+    let result = await instance.get("/search/multi", {
+      params: {
+        language: "ko-KR",
+        query,
+      },
+    });
+    return result;
+  } catch (e) {
+    console.log(e);
+  }
 };

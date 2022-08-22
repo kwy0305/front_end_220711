@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Navigation from "./Navigation";
+import Search from "./Search";
 
 export default function Header() {
   return (
     <HeaderBlock>
       <Logo>Nepp Movie</Logo>
       <Navigation />
+      <Search />
     </HeaderBlock>
   );
 }
