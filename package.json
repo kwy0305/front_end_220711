@@ -1,6 +1,20 @@
 {
   "dependencies": {
+    "@types/react-redux": "^7.1.24",
+    "@types/redux": "^3.6.0",
+    "bootstrap": "^5.2.0",
+    "link": "^1.5.1",
+    "nanoid": "^4.0.0",
+    "prop-types": "^15.8.1",
+    "react-bootstrap": "^2.5.0",
+    "react-github-button": "^0.1.11",
     "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
+    "react-reveal": "^1.2.2",
+    "react-scroll": "^1.8.7",
+    "react-spotify-api": "^3.0.0",
+    "redux": "^4.2.0",
+    "spotify": "^0.3.0",
     "styled-components": "^5.3.5"
   }
 }
