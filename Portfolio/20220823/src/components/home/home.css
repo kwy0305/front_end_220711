@@ -34,7 +34,7 @@
 }
 
 .home-container .logo .hover-show.active {
-  animation: showspin 8s linear 1s infinite;
+  animation: showspin 6s linear 1s infinite;
 }
 
 @keyframes showspin {
@@ -81,38 +81,11 @@
   background-size: cover;
   background-position: center;
 }
+
 .home-container .logo .hover-show.active .circle:nth-child(4) {
   position: absolute;
   transform: translateX(150%) translateY(150%);
-  background: url();
-  background-size: cover;
-  background-position: center;
-}
-.home-container .logo .hover-show.active .circle:nth-child(5) {
-  position: absolute;
-  transform: translateY(210%);
   background: url(../props/react.png);
-  background-size: cover;
-  background-position: center;
-}
-.home-container .logo .hover-show.active .circle:nth-child(6) {
-  position: absolute;
-  transform: translateX(-150%) translateY(150%);
-  background: url();
-  background-size: cover;
-  background-position: center;
-}
-.home-container .logo .hover-show.active .circle:nth-child(7) {
-  position: absolute;
-  transform: translateX(-210%);
-  background: url();
-  background-size: cover;
-  background-position: center;
-}
-.home-container .logo .hover-show.active .circle:nth-child(8) {
-  position: absolute;
-  transform: translateX(-150%) translateY(-150%);
-  background: url();
   background-size: cover;
   background-position: center;
 }

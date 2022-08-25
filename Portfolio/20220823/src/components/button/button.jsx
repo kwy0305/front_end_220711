@@ -4,10 +4,10 @@ function Buttons() {
   return (
     <div className="container button-container">
       <a href="#about" className="btn pri">
-        Learn more
+        더 알아보기
       </a>
       <a href="#contact" className="btn sec">
-        Get in Touch
+        링크
       </a>
     </div>
   );
