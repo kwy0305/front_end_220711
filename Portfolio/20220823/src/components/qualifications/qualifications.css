@@ -9,7 +9,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 80%;
-  width: 90%;
+  width: 80%;
   overflow-x: scroll;
   overflow-y: hidden;
   margin-top: 15px;
@@ -18,7 +18,7 @@
 
 .qualifications-container .qualification {
   position: relative;
-  height: 550px;
+  height: 400px;
   min-width: 40%;
   background-color: rgb(9, 6, 31);
   border-radius: 20px;

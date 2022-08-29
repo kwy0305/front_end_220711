@@ -52,7 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.2s ease;
+  transition: s ease;
   opacity: 0;
 }
 

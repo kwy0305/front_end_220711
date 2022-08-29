@@ -2,10 +2,11 @@ import axios from "axios";
 const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   headers: {
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNTVjYTJiY2U4YTRkM2I4ZjNlYTZlNWUxOTNjODU3NyIsInN1YiI6IjYyZmU0ZjEyMjVjZDg1MDA3ZWMyN2UwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.osTt12oVCvNLCd2ZJlEAYx-aRMlboDBor4MNqd3QvVw",
+    Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_KEY}`,
   },
 });
+
+console.log(process.env.REACT_APP_TMDB_API_KEY);
 
 export const getPopular = async (category, page) => {
   let { data } = await instance.get(`${category}/popular`, {

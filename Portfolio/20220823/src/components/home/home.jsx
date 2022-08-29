@@ -29,24 +29,23 @@ function Home() {
 
       <h2>
         <span>About Me</span> <br />
-        <div>
+        <span>
           {" "}
           <ImProfile /> 김원영
-        </div>
-        <div>
+        </span>
+        <span>
           <BsFillBagFill /> 1995.03.05
-        </div>
-        <div>
+        </span>
+        <span>
           <MdLocationOn /> 서울특별시 중랑구
-        </div>
-        <div>
+        </span>
+        <span>
           <IoIosCall /> 010-xxxx-xxxx
-        </div>
-        <div>
+        </span>
+        <span>
           <MdEmail /> dnjsdudjj@naver.com
-        </div>
+        </span>
       </h2>
-
       <Buttons />
     </div>
   );

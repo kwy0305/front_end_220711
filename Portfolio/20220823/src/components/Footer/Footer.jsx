@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div id="footer" className="container footer-container">
       <h1>
-        That's all{" "}
+        {" "}
         <a href="#home">
           <h2>
             <BsMouse /> - scroll up -
@@ -18,6 +18,7 @@ function Footer() {
           <TiSocialGithub className="social" />
         </a>
       </div>
+      <span>&copy; 2022.08.23 Made by kwy0305. All rights reserved.</span>
     </div>
   );
 }

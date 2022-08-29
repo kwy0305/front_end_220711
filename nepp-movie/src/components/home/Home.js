@@ -3,7 +3,7 @@ import PopularList from "./PopularList";
 export default function Home() {
   return (
     <div>
-      <PopularList title="Popular" category="movie" />
+      <PopularList title="인기 영화" category="movie" />
     </div>
   );
 }
